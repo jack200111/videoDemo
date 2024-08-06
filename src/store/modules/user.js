@@ -1,7 +1,7 @@
 import { login, logout, getInfo } from '@/api/user'
 import { getToken, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
-import menuApi from "@/api/menu";
+// import menuApi from "@/api/menu";
 
 const getDefaultState = () => {
   return {
@@ -85,21 +85,26 @@ const actions = {
   },
   getMenu({ commit, state }) {
     return new Promise((resolve, reject) => {
-      menuApi.getMenuTreeAll().then((response) => {
-        console.log(response, '动态路由菜单');
-        // this.$message({
-        //   type: "success",
-        //   message: '请求成功',
-        // });
-        // this.getUserList();
-        // 提交到仓库
-        // this.$emit('SET_MENU_LIST', response.data)
-        commit('SET_MENU_LIST', response.data)
-        resolve()
-      }).catch(error => {
-        reject(error)
-      })
+      commit('SET_MENU_LIST', window.routerData.data)
+      resolve()
     })
+    // return new Promise((resolve, reject) => {
+    //   menuApi.getMenuTreeAll().then((response) => {
+    //     console.log(response, '动态路由菜单');
+    //     // this.$message({
+    //     //   type: "success",
+    //     //   message: '请求成功',
+    //     // });
+    //     // this.getUserList();
+    //     // 提交到仓库
+    //     // this.$emit('SET_MENU_LIST', response.data)
+    //     // commit('SET_MENU_LIST', response.data)
+    //     commit('SET_MENU_LIST', window.routerData.data)
+    //     resolve()
+    //   }).catch(error => {
+    //     reject(error)
+    //   })
+    // })
   },
 
   // user logout

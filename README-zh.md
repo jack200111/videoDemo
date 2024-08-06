@@ -2,6 +2,13 @@
 
 node -v
 16.18.0 
+"sass": "^1.39.0",
+"sass-loader": "8.0.2",
+"script-loader": "^0.7.2",
+
+若需升级
+npm install sass-loader@10 --save-dev
+"sass": "^1.77.8",
 
 > 这是一个极简的 vue admin 管理后台。它只包含了 Element UI & axios & iconfont & permission control & lint
 

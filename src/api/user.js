@@ -1,10 +1,14 @@
 import request from '@/utils/request'
 
 export function login(data) {
-  return request({
-    url: '/user/login',
-    method: 'post',
-    data
+  // return request({
+  //   url: '/user/login',
+  //   method: 'post',
+  //   data
+  // })
+  return new Promise((resolve, reject) => {
+    resolve(window.loginData)
+    // return window.loginData
   })
 }
 
@@ -17,9 +21,13 @@ export function getInfo(token) {
 }
 
 export function logout() {
-  return request({
-    url: '/user/logout',
-    method: 'post'
+  // return request({
+  //   url: '/user/logout',
+  //   method: 'post'
+  // })
+  return new Promise((resolve, reject) => {
+    resolve()
+    // return window.loginData
   })
 }
 

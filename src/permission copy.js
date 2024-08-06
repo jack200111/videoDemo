@@ -79,7 +79,7 @@ router.beforeEach(async(to, from, next) => {
         });
         // 动态添加路由
         router.addRoutes(myRoutes);
-        console.log(myRoutes, 'myRoutes');
+        // console.log(myRoutes, 'myRoutes');
         // 存至全局变量
         global.myRoutes = myRoutes;
         // SET_MENU_ROUTER

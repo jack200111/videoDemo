@@ -77,29 +77,6 @@ export const constantRoutes = [
   //     },
   //   ]
   // },
-  {
-    path: '/dj/dashboard',
-    name: 'Dashboard',
-    component: () => import('@/views/home.vue'),
-    meta: { title: '首页', icon: 'dashboard', affix: true },
-    hidden: true,
-  },
-  {
-    path: '/dj/member',
-    name: 'Member',
-    component: () => import('@/views/member-car/member-list.vue'),
-    meta: { title: '会员列表', icon: 'userManage' },
-    hidden: true,
-  },
-  {
-    path: '/dj/inout-record',
-    name: 'InoutRecord',
-    // MemberCar
-    component: () => import('@/views/member-car/inout-record.vue'),
-    meta: { title: '车辆进出记录', icon: 'car' },
-    hidden: true
-  },
-
   // 404 page must be placed at the end !!!
   // { path: '*', redirect: '/404', hidden: true }
 ]

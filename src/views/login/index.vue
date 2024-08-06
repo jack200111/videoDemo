@@ -3,7 +3,7 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">欢迎使用东进车辆管理系统</h3>
+        <h3 class="title">欢迎使用视频监控管理系统</h3>
       </div>
 
       <el-form-item prop="username">
@@ -73,8 +73,8 @@ export default {
     }
     return {
       loginForm: {
-        account: '',
-        password: ''
+        account: 'admin',
+        password: 'Admin123'
         // password: 'admin456'
       },
       loginRules: {
@@ -114,8 +114,11 @@ export default {
             // 请求用户菜单id
             if (res.data) {
               // 存id
+              console.log('111');
               const re = await menuApi.getUserMenuIds(res.data.id)
+              console.log('222', re);
               if (re.data) {
+                console.log(re.data, 'data');
                 this.$store.commit('user/SET_USER_MENU', re.data)
                 // 存系统
                 // 加密
@@ -136,11 +139,12 @@ export default {
               this.$emit('SET_MENU_LIST', response.data)
               Notification({
                 title: getTimeState(),
-                message: "欢迎登录 东进车辆管理系统",
+                message: "欢迎登录 视频监控管理系统",
                 type: 'success',
                 duration: 3 * 1000
               })
               this.$router.push({ path: this.redirect || '/' })
+              // this.$router.push({ path: '/' })
               this.loading = false
             });
           }).catch(() => {

@@ -64,19 +64,27 @@ export default {
   // },
   // 获取用户菜单ids
   getUserMenuIds(user_id) {
-    return request({
-      // url: '/user/' + id,
-      url: `/menu/getUserMenuIds`,
-      method: 'post',
-      data: { user_id }
-    });
+    // return request({
+    //   // url: '/user/' + id,
+    //   url: `/menu/getUserMenuIds`,
+    //   method: 'post',
+    //   data: { user_id }
+    // });
+    return new Promise((resolve, reject) => {
+      resolve(window.idsData)
+      // return window.loginData
+    })
   },
   // 菜单全树
   getMenuTreeAll() {
-    return request({
-      url: `/menu/menuTreeAll`,
-      method: 'post'
-    });
+    // return request({
+    //   url: `/menu/menuTreeAll`,
+    //   method: 'post'
+    // });
+    return new Promise((resolve, reject) => {
+      resolve(window.routerData)
+      // return window.loginData
+    })
   },
   // 用户菜单树
   getMenuTreeUser() {

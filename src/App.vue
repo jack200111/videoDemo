@@ -11,6 +11,15 @@ export default {
 </script>
 
 <style>
+html,
+body,
+#app {
+	/* width: 100%; */
+	/* height: 100%; */
+	/* min-width: 1300px; */
+	/* min-height: 100%; */
+  height: 100vh;
+}
 .app-main{
   /* padding: 10px; */
 }

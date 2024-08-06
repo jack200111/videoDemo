@@ -2,7 +2,7 @@ module.exports = {
   /**
    * @description 网站标题
    */
-  title: '东进车辆管理系统',
+  title: '视频监控管理系统',
   /**
    * @description 是否显示 tagsView
    */
@@ -10,7 +10,7 @@ module.exports = {
   /**
    * @description 固定头部
    */
-  fixedHeader: true, // true
+  fixedHeader: false, // true
   /**
    * @description 记住密码状态下的token在Cookie中存储的天数，默认1天
    */

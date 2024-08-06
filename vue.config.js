@@ -33,25 +33,29 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    public: 'djc.dgruiyikeji.com:8889',
-    allowedHosts: ['djc.dgruiyikeji.com'],
+    // public: 'djc.dgruiyikeji.com:8889',
+    // allowedHosts: ['djc.dgruiyikeji.com'],
     proxy: {
       // 后端接口
       '/api': {
         ws: false,
         // target: process.env.VUE_APP_BASE_API,
-        // target: 'http://127.0.0.1:8000/api',
-        // target: process.env.VUE_APP_BASE_API,
-        // target: "http://djc.dgruiyikeji.com:20145/api",
-        // target: "http://127.0.0.1:20145/api",
-        target: 'http://192.168.0.221:20145/api',
+        target: 'http://192.168.0.219:9000',
         changeOrigin: true,
         timeout: 1000 * 180,
         pathRewrite: {
           '^/api': ''
         }
+      },
+      '/springbootApi': {
+        ws: false,
+        target: process.env.VUE_APP_URL,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/springbootApi': ''
+        }
       }
-    }
+    },
     // before: require('./mock/mock-server.js')
   },
   // 图标乱码有用代码开始

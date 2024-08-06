@@ -13,7 +13,7 @@ const service = axios.create({
   // baseURL: 'http://localhost:3003', // url = base url + request url
   baseURL: '/api',
   withCredentials: true, // send cookies when cross-domain requests 以便允许在跨域请求中携带 cookie
-  // timeout: 10000 // request timeout
+  timeout: 1000 * 10 // request timeout
 })
 
 // request interceptor
@@ -54,11 +54,11 @@ service.interceptors.response.use(
     // if the custom code is not 20000, it is judged as an error.
     // 账号未登录 重新登录
 
-    if (res.code !== 0) {
+    if (res.code !== 200) {
       Message({
-        message: res.msg || 'Error',
+        message: res.msg || '失败',
         type: 'error',
-        duration: 5 * 1000
+        duration: 3 * 1000
       })
 
       if (res.code === 2001) {
@@ -95,9 +95,9 @@ service.interceptors.response.use(
   error => {
     console.log('err' + error) // for debug
     Message({
-      message: error.message,
+      message: error.msg || '失败',
       type: 'error',
-      duration: 5 * 1000
+      duration: 3 * 1000
     })
     return Promise.reject(error)
   }

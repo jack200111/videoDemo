@@ -29,9 +29,10 @@ router.beforeEach(async(to, from, next) => {
     // if is logged in, redirect to the home page
     // next({ path: '/' })
     next()
-    // NProgress.done()
+    // NProgress.done()x
   } else {
     const isAddRouter = store.getters.isAddRouter
+    // const isAddRouter = false
     // console.log(isAddRouter);
     if (isAddRouter) {
       next()
@@ -39,12 +40,13 @@ router.beforeEach(async(to, from, next) => {
       try {
         // get user info
         await store.dispatch('user/getMenu')
-        // console.log(store.getters.menuList, 'store.getters.menuList');
+        console.log(store.getters.menuList, 'store.getters.menuList');
 
         // 过滤数组
         // const idS = store.getters.userMenu
         // const idS = window.SITE_CONFIG['userMenu']
         const idS = crypto.decrypt(localStorage.getItem('menuList'))
+        console.log(idS, 'idS');
         // const newRouterId = store.getters.menuList.filter((item) => idS.includes(item.id))
         // 调用递归函数
         // const newRouterId = filterMenuList(store.getters.menuList, idS);
@@ -71,7 +73,6 @@ router.beforeEach(async(to, from, next) => {
         // console.log(idS, ' idS');
         // const myRoutes = myFilterAsyncRoutes(store.getters.menuList);
         const myRoutes = myFilterAsyncRoutes(newRouterId);
-        // 404
         myRoutes.push({
           path: '*',
           redirect: '/404',
